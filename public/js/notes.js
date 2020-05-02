@@ -40,6 +40,31 @@ function createNote() {
 
   // Clear textarea
   elemNoteAdd.value = '';
+
+  // Load notes again
+  loadSavedNotes();
+}
+
+
+function loadSavedNotes() {
+  const notes = JSON.parse(localStorage.getItem('notes'));
+
+  if (notes) {
+    // Clear notes list display
+    document.querySelectorAll('.note').forEach(e => e.remove());
+
+    let elemContainer = document.querySelector('.container');
+
+    for (const note of notes) {
+      note.textHTML = note.text.replace(/\r\n|\r|\n/gi, '<br>');
+
+      let elemNote = document.createElement('div');
+      elemNote.className = 'col-main note';
+      elemNote.innerHTML = `<p>${note.textHTML}</p>`
+
+      elemContainer.append(elemNote);
+    }
+  }
 }
 
 /******************* Event Binding *******************/
@@ -53,3 +78,6 @@ elemNoteAdd.addEventListener('keydown', (event) => {
 
 // Trigger note saving on 'Add' button click
 buttonAdd.addEventListener('click', (event) => createNote);
+
+// Display notes
+document.body.onload = loadSavedNotes;
