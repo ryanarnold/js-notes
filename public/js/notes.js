@@ -1,4 +1,13 @@
 
+/********************* Classes *********************/
+
+class Note {
+  constructor(text) {
+    this.id = Math.floor(Math.random() * 99999) + 10000;
+    this.text = text;
+  }
+}
+
 /********************* Elements *********************/
 
 const elemNoteAdd = document.getElementById('noteAdd');
@@ -15,10 +24,7 @@ function createNote() {
     return;
   }
 
-  let note = {
-    id: Math.floor(Math.random() * 99999) + 10000, // Use random number for Id (ewan ko na lang pag nagduplicate pa to)
-    text
-  };
+  let note = new Note(text);
 
   // Try to load 'notes' list in local storage
   let notes = JSON.parse(localStorage.getItem('notes'));
