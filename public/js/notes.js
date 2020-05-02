@@ -26,8 +26,22 @@ class Note {
 const elemNoteAdd = document.getElementById('noteAdd');
 const buttonAdd = document.getElementById('btnAdd');
 const buttonClear = document.getElementById('btnClear');
+const buttonDelete = document.querySelectorAll('.btn-delete');
+let elemNotes = document.querySelectorAll('.note');
 
 /********************* Functions *********************/
+
+function bindHoverEventOnNotes() {
+  elemNotes.forEach(elem => {
+    elem.addEventListener('mouseover', (event) => {
+      elem.querySelector('.btn-delete').hidden = false;
+    });
+
+    elem.addEventListener('mouseout', (event) => {
+      elem.querySelector('.btn-delete').hidden = true;
+    });
+  });  
+}
 
 function createNote() {
   let text = elemNoteAdd.value.trimRight();
@@ -73,11 +87,14 @@ function loadSavedNotes() {
 
       let elemNote = document.createElement('div');
       elemNote.className = 'col-main note ' + note.color;
-      elemNote.innerHTML = `<p>${note.textHTML}</p>`
+      elemNote.innerHTML = `<a href="" class="btn-delete" hidden><i class="gg-close-o"></i></a><p>${note.textHTML}</p>`
 
       elemTop.after(elemNote);
     }
   }
+
+  elemNotes = document.querySelectorAll('.note');
+  bindHoverEventOnNotes();
 }
 
 /******************* Event Binding *******************/
