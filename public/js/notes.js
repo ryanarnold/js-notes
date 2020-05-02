@@ -5,6 +5,7 @@ class Note {
   constructor(text) {
     this.id = Math.floor(Math.random() * 99999) + 10000;
     this.text = text;
+    this.dateTimeCreated = new Date();
   }
 }
 
