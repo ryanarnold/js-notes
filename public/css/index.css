@@ -3,6 +3,8 @@ h1 {
   font-family: 'Merriweather', serif;
   text-align: center;
   font-size: 48px;
+  text-decoration: underline;
+  text-decoration-color: #BEFFF8
 }
 
 .container {
@@ -50,8 +52,7 @@ h1 {
   margin-left: 10px;
 
   /* Colors */
-  background-color: darkcyan;
-  color: white;
+  background-color: #BEFFF8;
 }
 
 #btnClear {
@@ -59,8 +60,7 @@ h1 {
   float: right;
 
   /* Colors */
-  background-color: gray;
-  color: white;
+  background-color: gE8E8E8ray;
 }
 
 .note {
