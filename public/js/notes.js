@@ -16,6 +16,7 @@ function createNote() {
   }
 
   let note = {
+    id: Math.floor(Math.random() * 99999) + 10000, // Use random number for Id (ewan ko na lang pag nagduplicate pa to)
     text
   };
 
