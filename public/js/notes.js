@@ -26,10 +26,17 @@ class Note {
 const elemNoteAdd = document.getElementById('noteAdd');
 const buttonAdd = document.getElementById('btnAdd');
 const buttonClear = document.getElementById('btnClear');
-const buttonDelete = document.querySelectorAll('.btn-delete');
 let elemNotes = document.querySelectorAll('.note');
 
 /********************* Functions *********************/
+
+
+function deleteNote(noteIdToDelete) {
+  let notes = JSON.parse(localStorage.getItem('notes'));
+  notes = notes.filter(note => note.id != noteIdToDelete);
+  localStorage.setItem('notes', JSON.stringify(notes));
+  loadSavedNotes();
+}
 
 function bindNoteEvents() {
   elemNotes.forEach(elem => {
@@ -39,6 +46,13 @@ function bindNoteEvents() {
 
     elem.addEventListener('mouseout', (event) => {
       elem.querySelector('.btn-delete').hidden = true;
+    });
+
+    const buttonDelete = elem.querySelector('.btn-delete');
+    
+    buttonDelete.addEventListener('click', (event) => {
+      event.preventDefault();
+      deleteNote(elem.noteId);
     });
   });  
 }
@@ -87,6 +101,7 @@ function loadSavedNotes() {
 
       let elemNote = document.createElement('div');
       elemNote.className = 'col-main note ' + note.color;
+      elemNote.noteId = note.id;
       elemNote.innerHTML = `<a href="" class="btn-delete" hidden><i class="gg-close"></i></a><p>${note.textHTML}</p>`
 
       elemTop.after(elemNote);
