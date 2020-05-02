@@ -87,7 +87,7 @@ function loadSavedNotes() {
 
       let elemNote = document.createElement('div');
       elemNote.className = 'col-main note ' + note.color;
-      elemNote.innerHTML = `<a href="" class="btn-delete" hidden><i class="gg-close-o"></i></a><p>${note.textHTML}</p>`
+      elemNote.innerHTML = `<a href="" class="btn-delete" hidden><i class="gg-close"></i></a><p>${note.textHTML}</p>`
 
       elemTop.after(elemNote);
     }

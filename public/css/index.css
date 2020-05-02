@@ -93,7 +93,7 @@ h1 {
 
 /* Icons */
 
-.gg-close-o {
+.gg-close {
   color: red;
   position: relative;
   top: 15px;
@@ -101,8 +101,8 @@ h1 {
   float: right;
 }
 
-.green .gg-close-o { color: #34FF00; }
-.red .gg-close-o { color: #FF4B00; }
-.blue .gg-close-o { color: #00B8FF; }
-.yellow .gg-close-o { color: #C3D000
+.green .gg-close { color: #34FF00; }
+.red .gg-close { color: #FF4B00; }
+.blue .gg-close { color: #00B8FF; }
+.yellow .gg-close { color: #C3D000
   ; }
