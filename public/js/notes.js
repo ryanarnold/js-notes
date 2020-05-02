@@ -19,7 +19,7 @@ function createNote() {
   let text = elemNoteAdd.value.trimRight();
 
   // Exit if note is empty
-  if (text === '') {
+  if (!text) {
     alert('Empty note!');
     return;
   }
