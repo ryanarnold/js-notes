@@ -89,3 +89,20 @@ h1 {
 .yellow {
   background-color: #FBFFBE;
 }
+
+
+/* Icons */
+
+.gg-close {
+  color: red;
+  position: relative;
+  top: 15px;
+  left: 10px;
+  float: right;
+}
+
+.green .gg-close { color: #34FF00; }
+.red .gg-close { color: #FF4B00; }
+.blue .gg-close { color: #00B8FF; }
+.yellow .gg-close { color: #C3D000
+  ; }
