@@ -89,7 +89,7 @@ elemNoteAdd.addEventListener('keydown', (event) => {
 });
 
 // Trigger note saving on 'Add' button click
-buttonAdd.addEventListener('click', (event) => createNote);
+buttonAdd.addEventListener('click', createNote);
 
 // Display notes
 document.body.onload = loadSavedNotes;
