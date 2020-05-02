@@ -6,6 +6,18 @@ class Note {
     this.id = Math.floor(Math.random() * 99999) + 10000;
     this.text = text;
     this.dateTimeCreated = new Date();
+
+    // Randomly pick color
+    const colorDeterminer = Math.floor(Math.random() * 4) + 1;
+    if (colorDeterminer === 1) {
+      this.color = 'green';
+    } else if (colorDeterminer === 2) {
+      this.color = 'blue';
+    } else if (colorDeterminer === 3) {
+      this.color = 'yellow';
+    } else if (colorDeterminer === 4) {
+      this.color = 'red';
+    }
   }
 }
 
@@ -40,6 +52,31 @@ function createNote() {
 
   // Clear textarea
   elemNoteAdd.value = '';
+
+  // Load notes again
+  loadSavedNotes();
+}
+
+
+function loadSavedNotes() {
+  const notes = JSON.parse(localStorage.getItem('notes'));
+
+  if (notes) {
+    // Clear notes list display
+    document.querySelectorAll('.note').forEach(e => e.remove());
+
+    let elemTop = document.querySelector('.col-main');
+
+    for (const note of notes) {
+      note.textHTML = note.text.replace(/\r\n|\r|\n/gi, '<br>');
+
+      let elemNote = document.createElement('div');
+      elemNote.className = 'col-main note ' + note.color;
+      elemNote.innerHTML = `<p>${note.textHTML}</p>`
+
+      elemTop.after(elemNote);
+    }
+  }
 }
 
 /******************* Event Binding *******************/
@@ -53,3 +90,6 @@ elemNoteAdd.addEventListener('keydown', (event) => {
 
 // Trigger note saving on 'Add' button click
 buttonAdd.addEventListener('click', (event) => createNote);
+
+// Display notes
+document.body.onload = loadSavedNotes;

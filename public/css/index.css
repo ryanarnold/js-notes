@@ -3,11 +3,14 @@ h1 {
   font-family: 'Merriweather', serif;
   text-align: center;
   font-size: 48px;
+  text-decoration: underline;
+  text-decoration-color: #BEFFF8
 }
 
 .container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  row-gap: 15px;
 }
 
 .col-main {
@@ -49,8 +52,7 @@ h1 {
   margin-left: 10px;
 
   /* Colors */
-  background-color: darkcyan;
-  color: white;
+  background-color: #BEFFF8;
 }
 
 #btnClear {
@@ -58,6 +60,32 @@ h1 {
   float: right;
 
   /* Colors */
-  background-color: gray;
-  color: white;
+  background-color: gE8E8E8ray;
+}
+
+.note {
+  /* Box Model */
+  padding-left: 30px;
+  padding-right: 30px;
+  border-radius: 5px;
+
+  /* Typography */
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 18px;
+}
+
+.green {
+  background-color: #CBFFBE;
+}
+
+.red {
+  background-color: #FFD1BE;
+}
+
+.blue {
+  background-color: #BEEDFF;
+}
+
+.yellow {
+  background-color: #FBFFBE;
 }
