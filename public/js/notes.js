@@ -25,6 +25,7 @@ class Note {
 
 const elemNoteAdd = document.getElementById('noteAdd');
 const buttonAdd = document.getElementById('btnAdd');
+const buttonClear = document.getElementById('btnClear');
 
 /********************* Functions *********************/
 
@@ -96,3 +97,9 @@ buttonAdd.addEventListener('click', (event) => {
 
 // Display notes
 document.body.onload = loadSavedNotes;
+
+// Clear text area
+buttonClear.addEventListener('click', (event) => {
+  elemNoteAdd.value = '';
+  buttonClear.blur();
+});
