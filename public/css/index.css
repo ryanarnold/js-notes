@@ -1,0 +1,15 @@
+
+h1 {
+  font-family: 'Merriweather', serif;
+  text-align: center;
+  font-size: 48px;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.col-main {
+  grid-column: 2;
+}
