@@ -8,6 +8,7 @@ h1 {
 .container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  row-gap: 15px;
 }
 
 .col-main {
@@ -60,4 +61,31 @@ h1 {
   /* Colors */
   background-color: gray;
   color: white;
+}
+
+.note {
+  /* Box Model */
+  padding-left: 30px;
+  padding-right: 30px;
+  border-radius: 5px;
+
+  /* Typography */
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 18px;
+}
+
+.green {
+  background-color: #CBFFBE;
+}
+
+.red {
+  background-color: #FFD1BE;
+}
+
+.blue {
+  background-color: #BEEDFF;
+}
+
+.yellow {
+  background-color: #FBFFBE;
 }
