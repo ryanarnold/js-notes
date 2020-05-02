@@ -31,7 +31,7 @@ let elemNotes = document.querySelectorAll('.note');
 
 /********************* Functions *********************/
 
-function bindHoverEventOnNotes() {
+function bindNoteEvents() {
   elemNotes.forEach(elem => {
     elem.addEventListener('mouseover', (event) => {
       elem.querySelector('.btn-delete').hidden = false;
@@ -94,7 +94,7 @@ function loadSavedNotes() {
   }
 
   elemNotes = document.querySelectorAll('.note');
-  bindHoverEventOnNotes();
+  bindNoteEvents();
 }
 
 /******************* Event Binding *******************/
