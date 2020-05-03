@@ -38,7 +38,7 @@ h3 {
   grid-column: 2;
 }
 
-#noteAdd {
+textarea {
   /* Box Model */
   width: 100%;
   height: 28px;
@@ -53,6 +53,11 @@ h3 {
   font-size: 18px;
 }
 
+.text-edit {
+  margin-top: 10px;
+  border: 0;
+}
+
 .btn {
   /* Box Model */
   display: block;
@@ -65,6 +70,13 @@ h3 {
   /* Typography */
   font-family: 'Noto Sans JP', sans-serif;
   font-size: 18px;
+
+  /* Others */
+  cursor: pointer;
+}
+
+.btn:active {
+  outline: none;
 }
 
 #btnAdd {
@@ -74,9 +86,6 @@ h3 {
 
   /* Colors */
   background-color: #BEFFF8;
-
-  /* Others */
-  cursor: pointer;
 }
 
 #btnAdd:hover {
@@ -85,7 +94,6 @@ h3 {
 
 #btnAdd:active {
   background-color: #BEFFF8;
-  outline: none;
 }
 
 #btnClear {
@@ -94,9 +102,6 @@ h3 {
 
   /* Colors */
   background-color: #E8E8E8;
-
-  /* Others */
-  cursor: pointer;
 }
 
 #btnClear:hover {
@@ -105,7 +110,36 @@ h3 {
 
 #btnClear:active {
   background-color: #E8E8E8;
-  outline: none;
+}
+
+.btn-edit {
+  float: right;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+.btn-discard {
+  background-color: #E8E8E8;
+}
+
+.btn-discard:hover {
+  background-color: #D4D4D4;
+}
+
+.btn-discard:active {
+  background-color: #E8E8E8;
+}
+
+.btn-save {
+  background-color: #BEFFF8;
+}
+
+.btn-save:hover {
+  background-color: #87FFF2;
+}
+
+.btn-save:active {
+  background-color: #BEFFF8;
 }
 
 .note {
@@ -119,35 +153,41 @@ h3 {
   font-size: 18px;
 }
 
-.green {
+.green, 
+.green textarea {
   background-color: #CBFFBE;
 }
 
-.red {
+.red,
+.red textarea {
   background-color: #FFD1BE;
 }
 
-.blue {
+.blue,
+.blue textarea {
   background-color: #BEEDFF;
 }
 
-.yellow {
+.yellow,
+.yellow textarea {
   background-color: #FBFFBE;
 }
 
 
 /* Icons */
 
+.btn-delete {
+  position: relative;
+}
+
 .gg-close {
   color: red;
-  position: relative;
+  position: absolute;
   top: 15px;
-  left: 10px;
-  float: right;
+  left: 550px;
 }
 
 .green .gg-close { color: #34FF00; }
 .red .gg-close { color: #FF4B00; }
 .blue .gg-close { color: #00B8FF; }
-.yellow .gg-close { color: #C3D000
-  ; }
+.yellow .gg-close { color: #C3D000; }
