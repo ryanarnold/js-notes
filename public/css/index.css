@@ -53,6 +53,10 @@ textarea {
   font-size: 18px;
 }
 
+.text-edit {
+  margin-top: 10px;
+}
+
 .btn {
   /* Box Model */
   display: block;
@@ -105,6 +109,36 @@ textarea {
 
 #btnClear:active {
   background-color: #E8E8E8;
+}
+
+.btn-edit {
+  float: right;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+.btn-discard {
+  background-color: #E8E8E8;
+}
+
+.btn-discard:hover {
+  background-color: #D4D4D4;
+}
+
+.btn-discard:active {
+  background-color: #E8E8E8;
+}
+
+.btn-save {
+  background-color: #BEFFF8;
+}
+
+.btn-save:hover {
+  background-color: #87FFF2;
+}
+
+.btn-save:active {
+  background-color: #BEFFF8;
 }
 
 .note {

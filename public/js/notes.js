@@ -39,15 +39,45 @@ function deleteNote(noteIdToDelete) {
   loadSavedNotes();
 }
 
+function editNote(elem) {
+  let noteP = elem.querySelector('p');
+  
+  let elemEditTextArea = document.createElement('textarea');
+  elemEditTextArea.className = 'text-edit';
+  elemEditTextArea.innerHTML = noteP.innerHTML.replace(/<br>/gi, '\n');
+  elem.append(elemEditTextArea);
+
+  let btnDiscard = document.createElement('button');
+  btnDiscard.className = 'btn btn-edit btn-discard';
+  btnDiscard.innerHTML = 'Discard'
+  elem.append(btnDiscard);
+
+  let btnSave = document.createElement('button');
+  btnSave.className = 'btn btn-edit btn-save';
+  btnSave.innerHTML = 'Save'
+  elem.append(btnSave);
+
+  elem.editing = 'true';
+
+  noteP.remove();
+  textAreaInit();
+}
+
 function bindNoteEvents() {
   elemNotes.forEach(elem => {
     elem.addEventListener('mouseover', (event) => {
-      elem.querySelector('.btn-delete').hidden = false;
+      if (elem.editing === 'false') {
+        elem.querySelector('.btn-delete').hidden = false;
+      }
     });
 
     elem.addEventListener('mouseout', (event) => {
       elem.querySelector('.btn-delete').hidden = true;
     });
+
+    elem.addEventListener('click', () => {
+      editNote(elem);
+    }, { once: true });
 
     const buttonDelete = elem.querySelector('.btn-delete');
     
@@ -104,6 +134,7 @@ function loadSavedNotes() {
       let elemNote = document.createElement('div');
       elemNote.className = 'col-main note ' + note.color;
       elemNote.noteId = note.id;
+      elemNote.editing = 'false';
       elemNote.innerHTML = `<a href="" class="btn-delete" hidden><i class="gg-close"></i></a><p>${note.textHTML}</p>`
 
       elemTop.after(elemNote);
