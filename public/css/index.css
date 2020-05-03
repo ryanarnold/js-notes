@@ -55,6 +55,7 @@ textarea {
 
 .text-edit {
   margin-top: 10px;
+  border: 0;
 }
 
 .btn {
@@ -152,19 +153,23 @@ textarea {
   font-size: 18px;
 }
 
-.green {
+.green, 
+.green textarea {
   background-color: #CBFFBE;
 }
 
-.red {
+.red,
+.red textarea {
   background-color: #FFD1BE;
 }
 
-.blue {
+.blue,
+.blue textarea {
   background-color: #BEEDFF;
 }
 
-.yellow {
+.yellow,
+.yellow textarea {
   background-color: #FBFFBE;
 }
 
@@ -185,5 +190,4 @@ textarea {
 .green .gg-close { color: #34FF00; }
 .red .gg-close { color: #FF4B00; }
 .blue .gg-close { color: #00B8FF; }
-.yellow .gg-close { color: #C3D000
-  ; }
+.yellow .gg-close { color: #C3D000; }
