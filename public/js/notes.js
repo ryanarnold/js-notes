@@ -35,7 +35,6 @@ function deleteNote(noteIdToDelete) {
   let notes = JSON.parse(localStorage.getItem('notes'));
   notes = notes.filter(note => note.id != noteIdToDelete);
   localStorage.setItem('notes', JSON.stringify(notes));
-  loadSavedNotes();
 }
 
 function bindNoteEvents() {
@@ -53,6 +52,7 @@ function bindNoteEvents() {
     buttonDelete.addEventListener('click', (event) => {
       event.preventDefault();
       deleteNote(elem.noteId);
+      elem.remove();
     });
   });  
 }
