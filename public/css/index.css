@@ -7,6 +7,27 @@ h1 {
   text-decoration-color: #BEFFF8
 }
 
+h3 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+
+  font-family: 'Merriweather', serif;
+  font-size: 24px;
+  text-decoration: underline;
+  text-decoration-color: #BEFFF8;
+
+  color: #444444;
+}
+
+#emptyNotes {
+  font-family: 'Merriweather', serif;
+  font-size: 16px;
+  font-style: italic;
+  text-align: center;
+
+  color: #444444;
+}
+
 .container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -53,6 +74,18 @@ h1 {
 
   /* Colors */
   background-color: #BEFFF8;
+
+  /* Others */
+  cursor: pointer;
+}
+
+#btnAdd:hover {
+  background-color: #87FFF2;
+}
+
+#btnAdd:active {
+  background-color: #BEFFF8;
+  outline: none;
 }
 
 #btnClear {
@@ -60,7 +93,19 @@ h1 {
   float: right;
 
   /* Colors */
-  background-color: gE8E8E8ray;
+  background-color: #E8E8E8;
+
+  /* Others */
+  cursor: pointer;
+}
+
+#btnClear:hover {
+  background-color: #D4D4D4;
+}
+
+#btnClear:active {
+  background-color: #E8E8E8;
+  outline: none;
 }
 
 .note {
