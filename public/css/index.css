@@ -74,6 +74,18 @@ h3 {
 
   /* Colors */
   background-color: #BEFFF8;
+
+  /* Others */
+  cursor: pointer;
+}
+
+#btnAdd:hover {
+  background-color: #87FFF2;
+}
+
+#btnAdd:active {
+  background-color: #BEFFF8;
+  outline: none;
 }
 
 #btnClear {
@@ -81,7 +93,19 @@ h3 {
   float: right;
 
   /* Colors */
-  background-color: gE8E8E8ray;
+  background-color: #E8E8E8;
+
+  /* Others */
+  cursor: pointer;
+}
+
+#btnClear:hover {
+  background-color: #D4D4D4;
+}
+
+#btnClear:active {
+  background-color: #E8E8E8;
+  outline: none;
 }
 
 .note {
