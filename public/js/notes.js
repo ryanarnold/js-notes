@@ -36,7 +36,18 @@ function deleteNote(noteIdToDelete) {
   let notes = JSON.parse(localStorage.getItem('notes'));
   notes = notes.filter(note => note.id != noteIdToDelete);
   localStorage.setItem('notes', JSON.stringify(notes));
-  loadSavedNotes();
+}
+
+function saveNote(noteId, noteText) {
+  let notes = JSON.parse(localStorage.getItem('notes'));
+  notes = notes.map(note => {
+    if (note.id === noteId) {
+      note.text = noteText;
+      return note;
+    }
+    return note;
+  });
+  localStorage.setItem('notes', JSON.stringify(notes));
 }
 
 function editNote(elem) {
@@ -45,6 +56,18 @@ function editNote(elem) {
   let elemEditTextArea = document.createElement('textarea');
   elemEditTextArea.className = 'text-edit';
   elemEditTextArea.innerHTML = noteP.innerHTML.replace(/<br>/gi, '\n');
+  elemEditTextArea.addEventListener('keydown', (event) => {
+    if (event.ctrlKey && event.keyCode === 13) {
+      const parent = event.target.closest('.col-main');
+      let noteText = parent.querySelector('textarea').value;
+      let noteId = parent.noteId
+      saveNote(noteId, noteText);
+      loadSavedNotes();
+    } else if (event.keyCode === 27) {
+      loadSavedNotes();
+    }
+    
+  });
   elem.append(elemEditTextArea);
 
   let btnDiscard = document.createElement('button');
@@ -56,6 +79,14 @@ function editNote(elem) {
   let btnSave = document.createElement('button');
   btnSave.className = 'btn btn-edit btn-save';
   btnSave.innerHTML = 'Save'
+  btnSave.addEventListener('click', () => {
+    const parent = event.target.closest('.col-main');
+    let noteText = parent.querySelector('textarea').value;
+    let noteId = parent.noteId
+    saveNote(noteId, noteText);
+    loadSavedNotes();
+  });
+
   elem.append(btnSave);
 
   elem.editing = 'true';
@@ -85,6 +116,7 @@ function bindNoteEvents() {
     buttonDelete.addEventListener('click', (event) => {
       event.preventDefault();
       deleteNote(elem.noteId);
+      loadSavedNotes();
     });
   });  
 }
