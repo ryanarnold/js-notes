@@ -50,6 +50,7 @@ function editNote(elem) {
   let btnDiscard = document.createElement('button');
   btnDiscard.className = 'btn btn-edit btn-discard';
   btnDiscard.innerHTML = 'Discard'
+  btnDiscard.addEventListener('click', loadSavedNotes);
   elem.append(btnDiscard);
 
   let btnSave = document.createElement('button');
