@@ -7,6 +7,27 @@ h1 {
   text-decoration-color: #BEFFF8
 }
 
+h3 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+
+  font-family: 'Merriweather', serif;
+  font-size: 24px;
+  text-decoration: underline;
+  text-decoration-color: #BEFFF8;
+
+  color: #444444;
+}
+
+#emptyNotes {
+  font-family: 'Merriweather', serif;
+  font-size: 16px;
+  font-style: italic;
+  text-align: center;
+
+  color: #444444;
+}
+
 .container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;

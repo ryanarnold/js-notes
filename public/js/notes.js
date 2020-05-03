@@ -27,6 +27,7 @@ const elemNoteAdd = document.getElementById('noteAdd');
 const buttonAdd = document.getElementById('btnAdd');
 const buttonClear = document.getElementById('btnClear');
 let elemNotes = document.querySelectorAll('.note');
+let elemEmptyNotes = document.getElementById('emptyNotes');
 
 /********************* Functions *********************/
 
@@ -35,6 +36,7 @@ function deleteNote(noteIdToDelete) {
   let notes = JSON.parse(localStorage.getItem('notes'));
   notes = notes.filter(note => note.id != noteIdToDelete);
   localStorage.setItem('notes', JSON.stringify(notes));
+  loadSavedNotes();
 }
 
 function bindNoteEvents() {
@@ -52,7 +54,6 @@ function bindNoteEvents() {
     buttonDelete.addEventListener('click', (event) => {
       event.preventDefault();
       deleteNote(elem.noteId);
-      elem.remove();
     });
   });  
 }
@@ -90,12 +91,13 @@ function createNote() {
 function loadSavedNotes() {
   const notes = JSON.parse(localStorage.getItem('notes'));
 
-  if (notes) {
-    // Clear notes list display
-    document.querySelectorAll('.note').forEach(e => e.remove());
+  let elemTop = document.querySelector('.subheading');
+  
+  // Clear notes list display
+  document.querySelectorAll('.note').forEach(e => e.remove());
 
-    let elemTop = document.querySelector('.col-main');
-
+  if (notes && notes.length != 0) {
+    elemEmptyNotes.hidden = true;
     for (const note of notes) {
       note.textHTML = note.text.replace(/\r\n|\r|\n/gi, '<br>');
 
@@ -106,6 +108,8 @@ function loadSavedNotes() {
 
       elemTop.after(elemNote);
     }
+  } else {
+    elemEmptyNotes.hidden = false;
   }
 
   elemNotes = document.querySelectorAll('.note');
