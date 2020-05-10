@@ -73,6 +73,9 @@ textarea {
 
   /* Others */
   cursor: pointer;
+
+  /* Animation */
+  transition: background-color .25s;
 }
 
 .btn:active {
