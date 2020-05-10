@@ -19,5 +19,9 @@
   "homepage": "https://github.com/ryanarnold/js-notes#readme",
   "dependencies": {
     "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.0.0",
+    "eslint-config-google": "^0.14.0"
   }
 }
